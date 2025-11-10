@@ -1,0 +1,89 @@
+/* Import Tailwind base styles (optional, as CDN is used) */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
+
+/* Animated Gradient Background for index.html */
+.animated-gradient {
+    background: linear-gradient(-45deg, #232526, #414345, #232526, #414345);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Custom Button Gradients */
+.btn-grad {
+    background-image: linear-gradient(to right, #6366F1 0%, #A855F7 50%, #EC4899 100%);
+    background-size: 200% auto;
+    transition: all 0.3s ease;
+}
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.btn-grad-green {
+     background-image: linear-gradient(to right, #10B981 0%, #34D399 50%, #6EE7B7 100%);
+     background-size: 200% auto;
+     transition: all 0.3s ease;
+}
+.btn-grad-green:hover {
+    background-position: right center;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+/* Card Style */
+.card {
+    @apply bg-gray-800 bg-opacity-70 backdrop-blur-md p-6 rounded-xl shadow-lg;
+}
+
+.card-title {
+    @apply text-xl font-bold text-white mb-4 border-b border-gray-700 pb-2;
+}
+
+/* Admin Tab Styles */
+.admin-tab {
+    @apply whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-400 hover:text-white hover:border-purple-400;
+}
+.admin-tab.active {
+    @apply border-purple-500 text-purple-400;
+}
+
+/* Input Field */
+.input-field {
+    @apply w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500;
+}
+
+/* Toast Notification */
+.toast {
+    @apply p-4 rounded-lg shadow-xl text-white font-semibold transition-all duration-300 transform;
+    animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 3.5s forwards;
+}
+.toast-success { @apply bg-green-600; }
+.toast-error { @apply bg-red-600; }
+.toast-info { @apply bg-blue-600; }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
