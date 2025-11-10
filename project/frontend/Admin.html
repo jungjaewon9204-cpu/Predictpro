@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - PredictPro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+
+    <nav class="bg-gray-800 bg-opacity-70 backdrop-blur-md shadow-lg p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">🎯 PredictPro [ADMIN]</h1>
+        <div>
+            <span id="admin-email" class="mr-4 text-gray-300"></span>
+            <span id="admin-role" class="mr-4 text-purple-300 font-bold"></span>
+            <span id="assistant-timer" class="mr-4 text-yellow-400 font-bold"></span>
+            <button id="logout-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg text-sm transition-all">
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <div class="mb-6">
+            <div class="border-b border-gray-700">
+                <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                    <button class="admin-tab" data-tab="tab-dashboard">Dashboard</button>
+                    <button class="admin-tab" data-tab="tab-payments">💰 Payments</button>
+                    <button class="admin-tab" data-tab="tab-odds">📊 Odds Mgt</button>
+                    <button class="admin-tab" data-tab="tab-users">👥 Users</button>
+                    <button class="admin-tab" data-tab="tab-assistants" id="assistants-tab">🔵 Assistants</button>
+                    <button class="admin-tab" data-tab="tab-support">💬 Support</button>
+                </nav>
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab-dashboard">
+            <h2 class="text-2xl font-bold mb-4">Admin Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="card"><p>Total Users</p><h3 id="stat-total-users" class="text-3xl font-bold">...</h3></div>
+                <div class="card"><p>Pending Payments</p><h3 id="stat-pending-payments" class="text-3xl font-bold">...</h3></div>
+                <div class="card"><p>Active Odds</p><h3 id="stat-active-odds" class="text-3xl font-bold">...</h3></div>
+            </div>
+        </div>
+
+        <div class="tab-content hidden" id="tab-payments">
+            <h2 class="text-2xl font-bold mb-4">Verify Payments</h2>
+            <div id="pending-payments-container" class="space-y-4">
+                <p class="text-gray-400">Loading pending payments...</p>
+            </div>
+        </div>
+
+        <div class="tab-content hidden" id="tab-odds">
+            <h2 class="text-2xl font-bold mb-4">Manage Odds</h2>
+            <div class="card">
+                <form id="add-odds-form">
+                    <h3 class="card-title">Add New Prediction</h3>
+                     <p class="text-gray-400">Odds management form goes here.</p>
+                </form>
+            </div>
+        </div>
+
+        <div class="tab-content hidden" id="tab-users">
+            <h2 class="text-2xl font-bold mb-4">Manage Users</h2>
+            <p class="text-gray-400">User management table goes here.</p>
+        </div>
+
+        <div class="tab-content hidden" id="tab-assistants">
+            <h2 class="text-2xl font-bold mb-4">Manage Assistants</h2>
+            <div class="card">
+                <form id="create-assistant-form">
+                    <h3 class="card-title">Create New Assistant</h3>
+                    <input type="email" id="assistant-email" placeholder="Assistant's Email" class="input-field mb-2">
+                    <input type="number" id="assistant-duration" placeholder="Duration (in days)" class="input-field mb-2">
+                    <button type="submit" class="w-full btn-grad">Create Assistant</button>
+                </form>
+            </div>
+            <div class="mt-6">
+                <h3 class="text-xl font-bold mb-2">Current Admins</h3>
+                <div id="admin-list-container" class="space-y-2">
+                    </div>
+            </div>
+        </div>
+        
+        <div class="tab-content hidden" id="tab-support">
+            <h2 class="text-2xl font-bold mb-4">Support Tickets</h2>
+            <p class="text-gray-400">Support ticket system goes here.</p>
+        </div>
+
+    </div>
+
+    <div id="toast-container" class="fixed bottom-5 left-5 z-50"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
